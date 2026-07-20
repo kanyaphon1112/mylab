@@ -3,12 +3,12 @@
 set -e
 
 echo "==> Installing Python dependencies..."
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt --break-system-packages
 
 echo "==> Collecting static files..."
-python manage.py collectstatic --noinput
+python3 manage.py collectstatic --noinput
 
 echo "==> Running database migrations..."
-python manage.py migrate --noinput
+python3 manage.py migrate --noinput
 
 echo "==> Build complete!"
