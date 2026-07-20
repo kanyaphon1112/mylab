@@ -1,14 +1,17 @@
 #!/bin/bash
-# Build script for Vercel deployment
+# Clean Build script for Vercel Deployment
 set -e
 
-echo "==> Installing Python dependencies..."
+echo "==> [BUILD] Upgrading pip..."
+python3 -m pip install --upgrade pip --break-system-packages
+
+echo "==> [BUILD] Installing dependencies from requirements.txt..."
 python3 -m pip install -r requirements.txt --break-system-packages
 
-echo "==> Collecting static files..."
+echo "==> [BUILD] Collecting static files..."
 python3 manage.py collectstatic --noinput
 
-echo "==> Running database migrations..."
+echo "==> [BUILD] Running database migrations..."
 python3 manage.py migrate --noinput
 
-echo "==> Build complete!"
+echo "==> [BUILD] Build successful!"
