@@ -94,11 +94,15 @@ WSGI_APPLICATION = "myabb.wsgi.application"
 # Vercel has a read-only filesystem except /tmp
 IS_VERCEL = "VERCEL" in os.environ
 
+# pyrefly: ignore [missing-import]
+import dj_database_url
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "/tmp/db.sqlite3" if IS_VERCEL else BASE_DIR / "db.sqlite3",
-    }
+    "default": dj_database_url.config(
+        default="postgresql://neondb_owner:npg_Nj0nCve3TPcq@ep-bold-boat-az1l4n7c-pooler.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
+        conn_max_age=600,
+        ssl_require=True,
+    )
 }
 
 
