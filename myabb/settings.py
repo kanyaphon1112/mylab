@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -99,7 +102,7 @@ import dj_database_url
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgresql://neondb_owner:npg_Nj0nCve3TPcq@ep-bold-boat-az1l4n7c-pooler.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
+        default=os.environ.get("DATABASE_URL", ""),
         conn_max_age=600,
         ssl_require=True,
     )
