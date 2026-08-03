@@ -10,7 +10,7 @@ PREFIX = [
 
 
 class student(models.Model):
-    prefix_name = models.CharField(max_length=100, blank=False, choices=PREFIX)
+    prefix_name = models.CharField(max_length=100, blank=False, choices=PREFIX, default="นาย")
     stu_id = models.CharField(max_length=12, unique=True)
     fname = models.CharField(max_length=100, blank=False)
     lname = models.CharField(max_length=100, blank=False)
