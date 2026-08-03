@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import student
 
 
 def home(request):
@@ -7,6 +8,9 @@ def home(request):
     context = {
         "title": "My Home Page",
     }
+    student = student.objects.all()
+    context["student"] = student
+
     context["date"] = datetime.date.today()
     return render(request, "myabb/home.html", context)
 
