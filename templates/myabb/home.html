@@ -19,11 +19,11 @@
   <tbody>
     {% for student in students %}
     <tr>
-      <th scope="row">1</th>
-      <td>{{ s.stu_id }}</td>
-      <td>{{ s.prefix_name }}</td>
-      <td>{{ s.fname }}</td>
-      <td>{{ s.lname }}</td>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ student.stu_id }}</td>
+      <td>{{ student.prefix_name }}</td>
+      <td>{{ student.fname }}</td>
+      <td>{{ student.lname }}</td>
     </tr>
     {% endfor %}
   </tbody>

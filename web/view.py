@@ -8,8 +8,8 @@ def home(request):
     context = {
         "title": "My Home Page",
     }
-    student = student.objects.all()
-    context["student"] = student
+    students = student.objects.all()
+    context["students"] = students
 
     context["date"] = datetime.date.today()
     return render(request, "myabb/home.html", context)
