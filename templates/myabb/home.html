@@ -17,14 +17,15 @@
     </tr>
   </thead>
   <tbody>
+    {% for student in students %}
     <tr>
       <th scope="row">1</th>
-      <td>001</td>
-      <td>นางสาว</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      
+      <td>{{ s.stu_id }}</td>
+      <td>{{ s.prefix_name }}</td>
+      <td>{{ s.fname }}</td>
+      <td>{{ s.lname }}</td>
     </tr>
+    {% endfor %}
   </tbody>
 </table>
 {% endblock %}
