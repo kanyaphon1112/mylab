@@ -20,10 +20,3 @@ class student(models.Model):
 
     def get_absolute_url(self):
         return reverse("student_detail", kwargs={"pk": self.pk})
-
-
-class StudentsAdmin(admin.ModelAdmin):
-    list_display = ("stu_id", "prefix_name", "fname", "lname")
-
-
-admin.site.register(student, StudentsAdmin)
